@@ -1,14 +1,17 @@
 import javax.swing.*;
 
 public class Interface {
-    private JPanel panelInterface;
-    private JEditorPane titleEditorPane;
+    private JPanel interfacePanel;
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
+    public JPanel getInterfacePanel() {
+        return interfacePanel;
     }
 
     public static void main(String[] args) {
-
+        JFrame frame = new JFrame("InterfacePanel");
+        frame.setContentPane(new Interface().getInterfacePanel());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
     }
 }
