@@ -1,16 +1,36 @@
 package roundrobinsimulation;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 public class Interface extends javax.swing.JFrame {
     
-    
+    RoundRobin rr;
     
     public Interface() {
         initComponents();
+        this.setTitle("Round Robin Simulation");
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+        int initalHeight = screenSize.height * 2 / 3;
+                int initalWidth = screenSize.width * 2 / 3;
+                 System.out.println(initalHeight);
+                 System.out.println(initalWidth);
+                //setPreferredSize(new Dimension(initalWidth,initalHeight)); 
+                //this.jPanel2 = new JPanel();
+                //this.jPanel2.setL
+                this.jPanel2.setPreferredSize(new Dimension(0,0));
+        //this.setPreferredSize(new Dimension(initalWidth,initalHeight));
+        this.jPanel2.setVisible(false);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -38,9 +58,9 @@ public class Interface extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel38 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -69,11 +89,12 @@ public class Interface extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(51, 209, 160));
+        setBackground(new java.awt.Color(204, 204, 255));
 
-        jPanel1.setBackground(new java.awt.Color(51, 173, 101));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Elephant", 0, 28)); // NOI18N
         jLabel1.setText("Round Robin Scheduling Algorithm Simulation");
@@ -155,14 +176,9 @@ public class Interface extends javax.swing.JFrame {
         jLabel4.setText("Burst Time");
 
         jLabel12.setFont(new java.awt.Font("Elephant", 1, 18)); // NOI18N
-        jLabel12.setText("Enter the Time Quantum");
+        jLabel12.setText("Automatically Setted Time Quantum");
 
-        jTextField11.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField11.setFont(new java.awt.Font("Elephant", 0, 18)); // NOI18N
-        jTextField11.setForeground(new java.awt.Color(51, 0, 51));
-        jTextField11.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-
-        jButton1.setBackground(new java.awt.Color(0, 98, 4));
+        jButton1.setBackground(new java.awt.Color(153, 153, 255));
         jButton1.setFont(new java.awt.Font("Elephant", 1, 18)); // NOI18N
         jButton1.setText("CLEAR");
         jButton1.setToolTipText("");
@@ -172,7 +188,7 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(0, 98, 4));
+        jButton3.setBackground(new java.awt.Color(153, 153, 255));
         jButton3.setFont(new java.awt.Font("Elephant", 1, 18)); // NOI18N
         jButton3.setText("TEST");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -180,6 +196,11 @@ public class Interface extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+
+        jLabel38.setFont(new java.awt.Font("Elephant", 1, 18)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel38.setText("0");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -193,7 +214,7 @@ public class Interface extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(131, 131, 131)
                                 .addComponent(jLabel11))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -216,14 +237,15 @@ public class Interface extends javax.swing.JFrame {
                                         .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel12)
-                                    .addGap(49, 49, 49)
-                                    .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jButton1)
-                                    .addGap(37, 37, 37)
-                                    .addComponent(jButton3)))))
+                                    .addComponent(jLabel12)
+                                    .addGap(26, 26, 26)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jButton1)
+                                            .addGap(37, 37, 37)
+                                            .addComponent(jButton3))
+                                        .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(328, 328, 328)
                         .addComponent(jLabel3)
@@ -275,15 +297,15 @@ public class Interface extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                    .addComponent(jLabel38))
+                .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton3))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(51, 173, 101));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel5.setFont(new java.awt.Font("Elephant", 1, 18)); // NOI18N
         jLabel5.setText("Process 1");
@@ -401,6 +423,15 @@ public class Interface extends javax.swing.JFrame {
         jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel37.setText("1");
 
+        jButton4.setBackground(new java.awt.Color(0, 98, 4));
+        jButton4.setFont(new java.awt.Font("Elephant", 1, 18)); // NOI18N
+        jButton4.setText("SHOW THE GANTT CHART");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -452,13 +483,16 @@ public class Interface extends javax.swing.JFrame {
                                     .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(205, 205, 205)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel34)
-                            .addComponent(jLabel35))
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel36)
-                            .addComponent(jLabel37))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton4)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel34)
+                                    .addComponent(jLabel35))
+                                .addGap(35, 35, 35)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -507,7 +541,9 @@ public class Interface extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel34)
                     .addComponent(jLabel37))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(jButton4)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -523,8 +559,8 @@ public class Interface extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -542,79 +578,137 @@ public class Interface extends javax.swing.JFrame {
         this.jTextField8.setText("");
         this.jTextField9.setText("");
         this.jTextField10.setText("");
-        this.jTextField11.setText("");
+        this.jLabel38.setText("0");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       Process p1 = new Process("Process1",Integer.parseInt(this.jTextField1.getText()),Integer.parseInt(this.jTextField6.getText()));
-       Process p2 = new Process("Process2",Integer.parseInt(this.jTextField2.getText()),Integer.parseInt(this.jTextField7.getText()));
-       Process p3 = new Process("Process3",Integer.parseInt(this.jTextField3.getText()),Integer.parseInt(this.jTextField8.getText()));
-       Process p4 = new Process("Process4",Integer.parseInt(this.jTextField4.getText()),Integer.parseInt(this.jTextField9.getText()));
-       Process p5 = new Process("Process5",Integer.parseInt(this.jTextField5.getText()),Integer.parseInt(this.jTextField10.getText()));
-       int timeQuantum = Integer.parseInt(this.jTextField11.getText());
-       ArrayList<Process> processList = new ArrayList<>(Arrays.asList(p1,p2,p3,p4,p5));
-       RoundRobin rr = new RoundRobin(processList,timeQuantum);
-       processList = rr.getCalculate();
        
-       p1 = processList.get(0);
-       String ct1 = Integer.toString(p1.getCompletedTime());
-       String wt1 = Integer.toString(p1.getWaitingTime());
-       String tat1 = Integer.toString(p1.getTurnAroundTime());
-       this.jLabel5.setText(p1.getName());
-       this.jLabel19.setText(ct1);
-       this.jLabel20.setText(wt1);
-       this.jLabel21.setText(tat1);
-       
-       p2 = processList.get(1);
-       String ct2 = Integer.toString(p2.getCompletedTime());
-       String wt2 = Integer.toString(p2.getWaitingTime());
-       String tat2 = Integer.toString(p2.getTurnAroundTime());
-       this.jLabel6.setText(p2.getName());
-       this.jLabel22.setText(ct2);
-       this.jLabel23.setText(wt2);
-       this.jLabel24.setText(tat2);
-       
-       p3 = processList.get(2);
-       String ct3 = Integer.toString(p3.getCompletedTime());
-       String wt3 = Integer.toString(p3.getWaitingTime());
-       String tat3 = Integer.toString(p3.getTurnAroundTime());
-       this.jLabel13.setText(p3.getName());
-       this.jLabel26.setText(ct3);
-       this.jLabel27.setText(wt3);
-       this.jLabel25.setText(tat3);
-       
-       p4 = processList.get(3);
-       String ct4 = Integer.toString(p4.getCompletedTime());
-       String wt4 = Integer.toString(p4.getWaitingTime());
-       String tat4 = Integer.toString(p4.getTurnAroundTime());
-       this.jLabel14.setText(p4.getName());
-       this.jLabel29.setText(ct4);
-       this.jLabel30.setText(wt4);
-       this.jLabel28.setText(tat4);
-       
-       p5 = processList.get(4);
-       String ct5 = Integer.toString(p5.getCompletedTime());
-       String wt5 = Integer.toString(p5.getWaitingTime());
-       String tat5 = Integer.toString(p5.getTurnAroundTime());
-       this.jLabel15.setText(p5.getName());
-       this.jLabel33.setText(ct5);
-       this.jLabel32.setText(wt5);
-       this.jLabel31.setText(tat5);
-       
-       
-       double awt = (Double.parseDouble(wt1) + Double.parseDouble(wt2) + Double.parseDouble(wt3) + Double.parseDouble(wt4) + Double.parseDouble(wt5))/5;
-       //float tempAWT = (float)Math.round(awt*100)/100;
-       //String.format("%.2f", i2)
-       String awts = String.format("%.2f", awt);
-       this.jLabel36.setText(awts);
-       
-       double atat = (Double.parseDouble(tat1) + Double.parseDouble(tat2) + Double.parseDouble(tat3) + Double.parseDouble(tat4) + Double.parseDouble(tat5))/5;
-       //float tempATAT = (float)Math.round(atat*100)/100;
-       String tats = String.format("%.2f", atat);
-       this.jLabel37.setText(tats);
-       
-       this.jPanel2.setVisible(true);
+       try{ 
+           
+            int[] checkNumbers = new int[10];
+            checkNumbers[0] = Integer.parseInt(this.jTextField1.getText());
+            checkNumbers[1] = Integer.parseInt(this.jTextField2.getText());
+            checkNumbers[2] = Integer.parseInt(this.jTextField3.getText());
+            checkNumbers[3] = Integer.parseInt(this.jTextField4.getText());
+            checkNumbers[4] = Integer.parseInt(this.jTextField5.getText());
+            checkNumbers[5] = Integer.parseInt(this.jTextField6.getText());
+            checkNumbers[6] = Integer.parseInt(this.jTextField7.getText());
+            checkNumbers[7] = Integer.parseInt(this.jTextField8.getText());
+            checkNumbers[8] = Integer.parseInt(this.jTextField9.getText());
+            checkNumbers[9] = Integer.parseInt(this.jTextField10.getText());
+            
+            boolean tempCheck = true;
+            
+            for (int i=0;i<10;i++){
+                if (checkNumbers[i]<0){
+                    tempCheck = false;
+                    break;
+                }
+            }
+            
+            if(tempCheck){
+                    
+            Process p1 = new Process("Process1",checkNumbers[0],checkNumbers[5]);
+            Process p2 = new Process("Process2",checkNumbers[1],checkNumbers[6]);
+            Process p3 = new Process("Process3",checkNumbers[2],checkNumbers[7]);
+            Process p4 = new Process("Process4",checkNumbers[3],checkNumbers[8]);
+            Process p5 = new Process("Process5",checkNumbers[4],checkNumbers[9]);
+            ArrayList<Process> processList = new ArrayList<>(Arrays.asList(p1,p2,p3,p4,p5));
+            this.rr = new RoundRobin(processList);
+            processList = this.rr.getCalculate();
+
+            p1 = processList.get(0);
+            String ct1 = Integer.toString(p1.getCompletedTime());
+            String wt1 = Integer.toString(p1.getWaitingTime());
+            String tat1 = Integer.toString(p1.getTurnAroundTime());
+            this.jLabel5.setText(p1.getName());
+            this.jLabel19.setText(ct1);
+            this.jLabel20.setText(wt1);
+            this.jLabel21.setText(tat1);
+
+            p2 = processList.get(1);
+            String ct2 = Integer.toString(p2.getCompletedTime());
+            String wt2 = Integer.toString(p2.getWaitingTime());
+            String tat2 = Integer.toString(p2.getTurnAroundTime());
+            this.jLabel6.setText(p2.getName());
+            this.jLabel22.setText(ct2);
+            this.jLabel23.setText(wt2);
+            this.jLabel24.setText(tat2);
+
+            p3 = processList.get(2);
+            String ct3 = Integer.toString(p3.getCompletedTime());
+            String wt3 = Integer.toString(p3.getWaitingTime());
+            String tat3 = Integer.toString(p3.getTurnAroundTime());
+            this.jLabel13.setText(p3.getName());
+            this.jLabel26.setText(ct3);
+            this.jLabel27.setText(wt3);
+            this.jLabel25.setText(tat3);
+
+            p4 = processList.get(3);
+            String ct4 = Integer.toString(p4.getCompletedTime());
+            String wt4 = Integer.toString(p4.getWaitingTime());
+            String tat4 = Integer.toString(p4.getTurnAroundTime());
+//            checkNumbers[9] = Integer.parseInt(ct4);
+//            checkNumbers[10] = Integer.parseInt(wt4);
+//            checkNumbers[11] = Integer.parseInt(tat4);
+            this.jLabel14.setText(p4.getName());
+            this.jLabel29.setText(ct4);
+            this.jLabel30.setText(wt4);
+            this.jLabel28.setText(tat4);
+
+            p5 = processList.get(4);
+            String ct5 = Integer.toString(p5.getCompletedTime());
+            String wt5 = Integer.toString(p5.getWaitingTime());
+            String tat5 = Integer.toString(p5.getTurnAroundTime());
+            this.jLabel15.setText(p5.getName());
+            this.jLabel33.setText(ct5);
+            this.jLabel32.setText(wt5);
+            this.jLabel31.setText(tat5);
+      
+            double awt = (Double.parseDouble(wt1) + Double.parseDouble(wt2) + Double.parseDouble(wt3) + Double.parseDouble(wt4) + Double.parseDouble(wt5))/5;
+            //float tempAWT = (float)Math.round(awt*100)/100;
+            //String.format("%.2f", i2)
+            String awts = String.format("%.2f", awt);
+            this.jLabel36.setText(awts);
+
+            double atat = (Double.parseDouble(tat1) + Double.parseDouble(tat2) + Double.parseDouble(tat3) + Double.parseDouble(tat4) + Double.parseDouble(tat5))/5;
+            //float tempATAT = (float)Math.round(atat*100)/100;
+            String tats = String.format("%.2f", atat);
+            this.jLabel37.setText(tats);
+            this.jLabel38.setText(Integer.toString(this.rr.getTimeQuantum()));
+            this.jPanel2.setVisible(true); 
+        }
+        
+        else{
+                JOptionPane.showMessageDialog(rootPane, "Please enter postive values only!");
+        }    
+            
+       }
+       catch(NumberFormatException ex){
+           JOptionPane.showMessageDialog(rootPane, "Please Enter all the values to complete the calculation!");
+       }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+        //show the gantt chart
+        ArrayList<String[]> temp = this.rr.getTiminigDetails();
+        System.out.println(temp.size());
+        GanttChart example = new GanttChart("Round Robin Simulation",temp);  
+         example.setSize(800, 400);  
+         example.setLocationRelativeTo(null);  
+         example.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  
+         example.setVisible(true);
+         
+         URL iconURL = getClass().getResource("robin.png");
+         // iconURL is null when not found
+         ImageIcon icon = new ImageIcon(iconURL);
+         example.setIconImage(icon.getImage());
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     
     
@@ -646,6 +740,12 @@ public class Interface extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame temp = new Interface();
+                URL iconURL = getClass().getResource("robin.png");
+                // iconURL is null when not found
+                ImageIcon icon = new ImageIcon(iconURL);
+                temp.setIconImage(icon.getImage());
+                
+                //temp.setLocationRelativeTo(null);
                 temp.setVisible(true);
             }
         });
@@ -654,6 +754,7 @@ public class Interface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -685,6 +786,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -695,7 +797,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
