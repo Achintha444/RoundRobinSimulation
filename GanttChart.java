@@ -30,7 +30,7 @@ public class GanttChart extends JFrame {
       JFreeChart chart = ChartFactory.createGanttChart(  
             "Round Robin Simulation", // Chart title  
             "Processes", // X-Axis Label  
-            "Timeline", // Y-Axis Label  
+            "Timeline (Clock Cycles)", // Y-Axis Label  
             dataset);  
   
       ChartPanel panel = new ChartPanel(chart);  

@@ -423,7 +423,7 @@ public class Interface extends javax.swing.JFrame {
         jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel37.setText("1");
 
-        jButton4.setBackground(new java.awt.Color(0, 98, 4));
+        jButton4.setBackground(new java.awt.Color(153, 153, 255));
         jButton4.setFont(new java.awt.Font("Elephant", 1, 18)); // NOI18N
         jButton4.setText("SHOW THE GANTT CHART");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
